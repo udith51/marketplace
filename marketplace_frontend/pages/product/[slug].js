@@ -10,7 +10,6 @@ const ProductDetails = ({ product, products }) => {
     const [index, setIndex] = useState(0);
     const { decQty, incQty, qty, setQty, onAdd, setShowCart, cartItems } = useStateContext();
     useEffect(() => {
-        console.log(cartItems);
         const productInCart = cartItems.find(cartItem => cartItem._id === product._id);
         if (productInCart) {
             console.log(productInCart);
@@ -19,6 +18,7 @@ const ProductDetails = ({ product, products }) => {
             setQty(1);
         }
     }, [product])
+
     const handleBuyNow = () => {
         onAdd(product, qty);
         setShowCart(true);
